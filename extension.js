@@ -35,7 +35,7 @@ async function downloadAndInstallDependencyCheck() {
 			const unzipCommand = `Expand-Archive -Path 'dependency-check.zip' -DestinationPath '${destinationPath}' -Force`;
 			exec(unzipCommand, (error, stdout, stderr) => {
 				if (error) {
-					console.error(`Error al descomprimir dependency-check: ${error} ${stderr}`);
+					vscode.window.showErrorMessage(`Error al descomprimir dependency-check: ${error} ${stderr}`);
 					return;
 				}
 				vscode.window.showInformationMessage(`dependency-check ha sido descargado e instalado correctamente ${stdout}`);
